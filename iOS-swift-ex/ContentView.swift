@@ -9,14 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Link(destination: URL(string: "https://www.skshieldus.com/" )!) {
+                Text("Safari App으로 이동하기")
+            }
         }
-        .padding()
-    }
 }
 
 #Preview {

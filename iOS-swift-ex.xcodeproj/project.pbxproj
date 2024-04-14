@@ -14,6 +14,7 @@
 		DAFBE6152BCA548100BF5E63 /* iOS_swift_exTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBE6142BCA548100BF5E63 /* iOS_swift_exTests.swift */; };
 		DAFBE61F2BCA548100BF5E63 /* iOS_swift_exUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBE61E2BCA548100BF5E63 /* iOS_swift_exUITests.swift */; };
 		DAFBE6212BCA548100BF5E63 /* iOS_swift_exUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBE6202BCA548100BF5E63 /* iOS_swift_exUITestsLaunchTests.swift */; };
+		DAFBE62F2BCA75C800BF5E63 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAFBE62E2BCA75C800BF5E63 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		DAFBE61A2BCA548100BF5E63 /* iOS-swift-exUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iOS-swift-exUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFBE61E2BCA548100BF5E63 /* iOS_swift_exUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_swift_exUITests.swift; sourceTree = "<group>"; };
 		DAFBE6202BCA548100BF5E63 /* iOS_swift_exUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_swift_exUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DAFBE62E2BCA75C800BF5E63 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAFBE62F2BCA75C800BF5E63 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +81,7 @@
 				DAFBE6132BCA548100BF5E63 /* iOS-swift-exTests */,
 				DAFBE61D2BCA548100BF5E63 /* iOS-swift-exUITests */,
 				DAFBE6012BCA547F00BF5E63 /* Products */,
+				DAFBE62D2BCA75C800BF5E63 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +129,14 @@
 				DAFBE6202BCA548100BF5E63 /* iOS_swift_exUITestsLaunchTests.swift */,
 			);
 			path = "iOS-swift-exUITests";
+			sourceTree = "<group>";
+		};
+		DAFBE62D2BCA75C800BF5E63 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DAFBE62E2BCA75C800BF5E63 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
