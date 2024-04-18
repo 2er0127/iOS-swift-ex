@@ -2,8 +2,8 @@
 //  iOS_swift_exApp.swift
 //  iOS-swift-ex
 //
-//  Created by zero on 4/13/24.
-//
+// 앱의 진입점(Entry Point). 앱이 시작될 때 가장 먼저 실행되는 코드가 포함됨.
+// 보통 앱의 설정이나 초기화 작업이 이루어짐.
 
 import SwiftUI
 
