@@ -6,37 +6,84 @@
 // 앱의 UI 요소들을 구성하는 코드가 포함됨.
 
 import SwiftUI
-import WebKit
 
 struct ContentView: View {
-    let webViewURL = URL(string: "https://www.skshieldus.com/")! // 해당 URL
-    let webView = WKWebView()
+    @State var selectedTitle = "Main"
+    @State var showSide = false
+    @State var translation: CGSize = .zero
+    @State var offsetX: CGFloat = -120
     
-    var body: some View {
-        Rectangle()
-                    .fill(Color.blue)
-                    .frame(width: 300, height: 600)
-                    .overlay(
-                        WebView(webView: webView, url: webViewURL)
-                            .onAppear {
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    let request = URLRequest(url: self.webViewURL)
-                                    self.webView.load(request)
-                                }
-                            }
-                    )
-            }
-}
-
-struct WebView: UIViewRepresentable {
-    let webView: WKWebView
-    let url: URL
-    
-    func makeUIView(context: Context) -> WKWebView {
-        return webView
+    init() {
+        UITabBar.appearance().isHidden = true
     }
     
-    func updateUIView(_ uiView: WKWebView, context: Context) {
+    var body: some View {
+        HStack {
+            SideView(selectedTitle: $selectedTitle)
+            ZStack {
+                HomeView(selectedTitle: $selectedTitle)
+            }
+            .overlay(alignment: .topLeading, content: {
+                VStack {
+                    Button(action: {
+                        withAnimation(.spring()){
+                            showSide.toggle()
+                        }
+                    }) {
+                        VStack(spacing: 5) {
+                            Capsule()
+                                .fill(Color.primary)
+                                .frame(width: 30, height: 3)
+                                .rotationEffect(.degrees(showSide ? 45 : 0))
+                                .offset(y: showSide ? 8 : 0)
+                            Capsule()
+                                .fill(Color.primary)
+                                .frame(width: 30, height: 3)
+                                .opacity(showSide ? 0 : 1)
+                            Capsule()
+                                .fill(Color.primary)
+                                .frame(width: 30, height: 3)
+                                .rotationEffect(.degrees(showSide ? -45 : 0))
+                                .offset(y: showSide ? -8 : 0)
+                        }
+                        .padding()
+                    }
+                }
+            })
+        }
+        .offset(x: (translation.width + offsetX) > -120 ? ((translation.width + offsetX) < 120 ? translation.width + offsetX : 120 ) : -120)
+        .onChange(of: showSide) {_ in
+            withAnimation(.spring()) {
+                if showSide && offsetX == -120 {
+                    offsetX = 120
+//                    print("showSide ON")
+                }
+                if !showSide && offsetX == 120 {
+                    offsetX = -120
+//                    print("showSide OFF")
+                }
+            }
+        }
+        .gesture(
+            DragGesture()
+                .onChanged { value in
+                    translation = value.translation
+                }
+                .onEnded {_ in
+                    withAnimation(.spring()) {
+                        let dragOffset = translation.width + offsetX
+
+                        if dragOffset > -100 && offsetX == -120 {
+                            offsetX = 120
+                            showSide = true
+                        } else if dragOffset < 100 && offsetX == 120 {
+                            offsetX = -120
+                            showSide = false
+                        }
+                        translation = .zero
+                    }
+                }
+        )
         
     }
 }
@@ -46,3 +93,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
