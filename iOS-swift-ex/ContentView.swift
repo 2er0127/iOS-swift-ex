@@ -1,9 +1,8 @@
-//
 //  ContentView.swift
 //  iOS-swift-ex
 //
-// 앱의 기본 화면을 정의함. SwiftUI 프레임워크에서는 화면 구성을 위해 해당 파일을 주로 사용함.
-// 앱의 UI 요소들을 구성하는 코드가 포함됨.
+// 앱의 기본 화면을 정의. SwiftUI 프레임워크에서는 화면 구성을 위해 해당 파일을 주로 사용
+// 앱의 UI 요소들을 구성하는 코드가 포함
 
 import SwiftUI
 
@@ -18,13 +17,11 @@ struct ContentView: View {
     }
     
     var body: some View {
-        HStack {
-            SideView(selectedTitle: $selectedTitle)
+        VStack {
             ZStack {
-                HomeView(selectedTitle: $selectedTitle)
-            }
-            .overlay(alignment: .topLeading, content: {
-                VStack {
+                CustomTopBar()
+                
+                HStack {
                     Button(action: {
                         withAnimation(.spring()){
                             showSide.toggle()
@@ -48,43 +45,63 @@ struct ContentView: View {
                         }
                         .padding()
                     }
+                    
+                    Spacer()
                 }
-            })
-        }
-        .offset(x: (translation.width + offsetX) > -120 ? ((translation.width + offsetX) < 120 ? translation.width + offsetX : 120 ) : -120)
-        .onChange(of: showSide) {_ in
-            withAnimation(.spring()) {
-                if showSide && offsetX == -120 {
-                    offsetX = 120
-//                    print("showSide ON")
-                }
-                if !showSide && offsetX == 120 {
-                    offsetX = -120
-//                    print("showSide OFF")
-                }
+                .padding(.horizontal)
             }
-        }
-        .gesture(
-            DragGesture()
-                .onChanged { value in
-                    translation = value.translation
+            
+            HStack {
+                SideView(selectedTitle: $selectedTitle)
+                ZStack {
+                    HomeView(selectedTitle: $selectedTitle)
                 }
-                .onEnded {_ in
-                    withAnimation(.spring()) {
-                        let dragOffset = translation.width + offsetX
-
-                        if dragOffset > -100 && offsetX == -120 {
-                            offsetX = 120
-                            showSide = true
-                        } else if dragOffset < 100 && offsetX == 120 {
-                            offsetX = -120
-                            showSide = false
-                        }
-                        translation = .zero
+                .overlay(alignment: .topLeading, content: {
+                    Color.clear
+                        .edgesIgnoringSafeArea(.top)
+                })
+            }
+            .offset(x: (translation.width + offsetX) > -120 ? ((translation.width + offsetX) < 120 ? translation.width + offsetX : 120 ) : -120)
+            .onChange(of: showSide) {_ in
+                withAnimation(.spring()) {
+                    if showSide && offsetX == -120 {
+                        offsetX = 120
+                    }
+                    if !showSide && offsetX == 120 {
+                        offsetX = -120
                     }
                 }
-        )
-        
+            }
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        translation = value.translation
+                    }
+                    .onEnded {_ in
+                        withAnimation(.spring()) {
+                            let dragOffset = translation.width + offsetX
+                            
+                            if dragOffset > -100 && offsetX == -120 {
+                                offsetX = 120
+                                showSide = true
+                            } else if dragOffset < 100 && offsetX == 120 {
+                                offsetX = -120
+                                showSide = false
+                            }
+                            translation = .zero
+                        }
+                    }
+            )
+        }
+    }
+}
+
+struct CustomTopBar: View {
+    var body: some View {
+        Rectangle()
+            .foregroundColor(.white) // 배경색
+            .frame(height: 50) // 높이
+            .edgesIgnoringSafeArea(.top)
     }
 }
 

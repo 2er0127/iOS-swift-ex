@@ -10,7 +10,6 @@
 		B30C62AE2BD22E7500EEEEE7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBE6052BCA547F00BF5E63 /* ContentView.swift */; };
 		B30C62B02BD2304200EEEEE7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C62AF2BD2304200EEEEE7 /* HomeView.swift */; };
 		B30C62B22BD2305B00EEEEE7 /* SideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C62B12BD2305B00EEEEE7 /* SideView.swift */; };
-		B30C62BA2BD2310F00EEEEE7 /* CustomCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C62B92BD2310F00EEEEE7 /* CustomCorners.swift */; };
 		B30C62BC2BD232F500EEEEE7 /* TapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B30C62BB2BD232F500EEEEE7 /* TapButton.swift */; };
 		DAFBE6042BCA547F00BF5E63 /* iOS_swift_exApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFBE6032BCA547F00BF5E63 /* iOS_swift_exApp.swift */; };
 		DAFBE6082BCA548100BF5E63 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAFBE6072BCA548100BF5E63 /* Assets.xcassets */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		B30C62AF2BD2304200EEEEE7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		B30C62B12BD2305B00EEEEE7 /* SideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideView.swift; sourceTree = "<group>"; };
-		B30C62B92BD2310F00EEEEE7 /* CustomCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCorners.swift; sourceTree = "<group>"; };
 		B30C62BB2BD232F500EEEEE7 /* TapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButton.swift; sourceTree = "<group>"; };
 		DAFBE6002BCA547F00BF5E63 /* iOS-swift-ex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-swift-ex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAFBE6032BCA547F00BF5E63 /* iOS_swift_exApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_swift_exApp.swift; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 				DAFBE6092BCA548100BF5E63 /* Preview Content */,
 				B30C62AF2BD2304200EEEEE7 /* HomeView.swift */,
 				B30C62B12BD2305B00EEEEE7 /* SideView.swift */,
-				B30C62B92BD2310F00EEEEE7 /* CustomCorners.swift */,
 				B30C62BB2BD232F500EEEEE7 /* TapButton.swift */,
 			);
 			path = "iOS-swift-ex";
@@ -285,7 +282,6 @@
 				B30C62B02BD2304200EEEEE7 /* HomeView.swift in Sources */,
 				B30C62B22BD2305B00EEEEE7 /* SideView.swift in Sources */,
 				B30C62AE2BD22E7500EEEEE7 /* ContentView.swift in Sources */,
-				B30C62BA2BD2310F00EEEEE7 /* CustomCorners.swift in Sources */,
 				DAFBE6042BCA547F00BF5E63 /* iOS_swift_exApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

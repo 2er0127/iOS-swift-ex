@@ -1,8 +1,5 @@
-//
 //  TapButton.swift
 //  iOS-swift-ex
-//
-//
 
 import SwiftUI
 
@@ -35,11 +32,7 @@ struct TapButton: View {
             ZStack {
                 if selectedTitle == title {
                     Color(hue: 1.0, saturation: 0.0, brightness: 0.046)
-                        //선택된 뷰에 배경
                         .opacity(selectedTitle == title ? 1 : 0)
-                        //CustomCorners
-                        .clipShape(CustomCorners(corners: [.topRight, .bottomRight], radius: 12))
-                        //id별 궤적 생성 애니메이션
                         .matchedGeometryEffect(id: "TapEffect", in: namespace)
                 }
             }
